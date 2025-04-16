@@ -1,0 +1,10 @@
+.custom-img {
+    width: 100%; 
+    max-width: 200px; 
+    height: auto; 
+    object-fit: cover; 
+  }
+  
+  ::ng-deep .golden-star {
+    color: #ffd700 !important; 
+  }
