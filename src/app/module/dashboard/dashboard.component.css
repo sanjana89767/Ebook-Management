@@ -1,87 +1,13 @@
 
-
-        .ebook-card {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border: none;
-            border-radius: 12px;
-          }
-          
-          .card-body {
-            padding: 1.5rem;
-          }
-          
-          img {
-            border-top-left-radius: 12px;
-            border-bottom-left-radius: 12px;
-            height: 100%;
-            object-fit: cover;
-          }
-          
-          .progress-info {
-            margin-top: 10px;
-          }
-          
-          input[type="range"] {
-            width: 100%;
-          }
-          
-          
-
-
-
-          .ma-resources .book-cover {
-            box-shadow: 0 0 5px 0px #cacaca;
-            padding: 15px;
-            border-radius: 4px;
-            text-align: center;
-            margin: 15px 0;
-        }
-
-        .ma-resources .book-cover img {
-            width: 100%;
-            height: auto;
-        }
-
-        .ma-resources .book-cover span.embededpdftitle {
-            display: none;
-            color: #ededed;
-            line-height: 0;
-        }
-
-        .ma-resources .book-cover a {
-            background-color: #8abd46;
-            padding: 5px 20px;
-            border-radius: 5px;
-            color: #000;
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 16px;
-            transition: all ease 0.5s;
-        }
-
-
-        .ma-resources h3.com-ebooks {
-            margin-bottom: 15px;
-            border-bottom: 1px solid #e89900;
-        }
-
-
-
-
-        /* Card height */
 .ebook-card {
     max-height: 350px;
   }
-  
-  /* Image responsiveness */
 
-  
-  /* Default styling for text content */
   .card-body {
     padding: 10px;
   }
   
-  /* Responsive adjustments for smaller screens */
+
   @media (max-width: 767px) {
     .ebook-card {
       max-height: 450px;
@@ -94,14 +20,14 @@
     }
   }
   
-/* Ensure all images are of the same size */
+
 .ebook-image {
-  height: 150px; /* Fixed height for uniformity */
+  height: 150px; 
 }
 
 .book-image {
   width: 100%;
-  height: auto;  /* Ensure the height adjusts based on the aspect ratio */
-  max-height: 200px; /* Set a maximum height to prevent the image from stretching too much */
-  object-fit: contain; /* Ensure the whole image is visible within the bounds of the container */
+  height: auto; 
+  max-height: 200px;
+  object-fit: contain; 
 }

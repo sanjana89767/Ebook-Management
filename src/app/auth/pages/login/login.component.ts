@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../../api/login.service';
 import { Router } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -28,14 +29,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,MatButtonModule,FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatCardModule,RouterModule],
+  imports: [CommonModule,MatButtonModule,FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatCardModule,RouterModule,MatIcon],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
  loginForm: FormGroup;
+ hidePassword = true; 
 
   constructor(private fb: FormBuilder,private toastr:ToastrService,private service:LoginService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -43,9 +44,6 @@ export class LoginComponent {
       password: ['', Validators.required]
     });
   }
-
-  matcher = new MyErrorStateMatcher();
-
 
   onLogin() {
     if (this.loginForm.valid) {
@@ -59,6 +57,11 @@ export class LoginComponent {
         }
       });
     }
+  }
+  
+
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword; 
   }
   
   get token() {

@@ -12,7 +12,7 @@ export class LoginService {
   isLoggedIn$ = this.loggedIn.asObservable();
 
   login(username: string, password: string) {
-    const loginData = JSON.parse(localStorage.getItem('signup') || '');
+    const loginData = JSON.parse(localStorage.getItem('signup') || '{}');
     
     if (loginData.username === username && loginData.password === password) {
       const Token = btoa(JSON.stringify({ username, exp: Date.now() + 3600000 }));

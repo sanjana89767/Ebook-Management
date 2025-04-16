@@ -2,9 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
   Validators,
   FormsModule,
   ReactiveFormsModule,FormBuilder,FormGroup
@@ -12,16 +9,15 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { MatIcon } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-// import { ToastrModule } from 'ngx-toastr';
 import { ToastrService } from 'ngx-toastr';
 import { SignUpService } from '../../api/sign-up.service';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [CommonModule,MatButtonModule,FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatCardModule,RouterModule],
+  imports: [CommonModule,MatButtonModule,FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatCardModule,RouterModule,MatIcon],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
@@ -29,6 +25,7 @@ export class SignUpComponent {
 
   signupform: FormGroup;
   initialValue: any;
+  hidePassword = true; 
 
   constructor(private fb: FormBuilder,private toastr:ToastrService,private service:SignUpService) {
     this.signupform = this.fb.group({
@@ -39,9 +36,9 @@ export class SignUpComponent {
     });
   }
 
-  // ngOnInit(): void {
-  //   this.initialValue = this.loginForm.value;
-  // }
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword; 
+  }
 
   Save() {
     const formData = this.signupform.value;
@@ -49,10 +46,23 @@ export class SignUpComponent {
 
     if (this.signupform.valid && formData.password === formData.reenterpassword) {
       this.service.registerdata(formData);
-      this.toastr.info("Data Saved Successfully", "", { timeOut: 5000 });
+      this.toastr.info("Account Created Successfully", "", { timeOut: 5000 });
+      this.reset();
     } else {
-      //this.toastr.error("Passwords do not match!", "", { timeOut: 5000 });
+      //this.toastr.error("", "", { timeOut: 5000 });
     }
+  }
+
+  reset(){
+    this.signupform.patchValue({
+      username: '',
+      email: '',
+      password: '',
+      reenterpassword: ''
+    });
+    Object.keys(this.signupform.controls).forEach(key => {
+      this.signupform.get(key)?.setErrors(null);
+    });
   }
   
 }

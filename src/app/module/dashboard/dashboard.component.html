@@ -1,7 +1,7 @@
 <div class="contact-banner-sec common-banner-sec">
   <div class="container">
     <div class="banner-txt">
-      <!-- <h1>Free ebooks</h1> -->
+      <h1>Free ebooks</h1>
     </div>
   </div>
 </div>
@@ -9,111 +9,46 @@
 
 <div class="mk-current-opening" id="mk-c-o">
   <div class="container">
-      <div class="contact-title">
-      
+    <div class="contact-title">
+
+    </div>
+
+    <div class="col-md-12">
+
+      <div class="input-group mk-d-flex mb-3">
+        <input id="search" [(ngModel)]="search" [ngModelOptions]="{ standalone: true }" type="text" class="form-control"
+          placeholder="Search for Books" />
+        <div class="mk-search-icon-outer">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
         </div>
+      </div>
 
-        <div class="col-md-12">
-        
-          <div class="input-group mk-d-flex mb-3">      
-            <input id="search" [(ngModel)]="search" [ngModelOptions]="{ standalone: true }" type="text"
-            class="form-control" placeholder="Search for Books" />
-            <div class="mk-search-icon-outer">
-              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
-            </div>
-          </div>
+      <div class="container mt-4">
+        <div *ngFor="let category of categories">
+          <h4 class="mb-3 text-primary">{{ category }}</h4>
 
-        <div class="container mt-4">
-          <div *ngFor="let category of categories">
-            <h4 class="mb-3 text-primary">{{ category }}</h4>
-        
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-              <div class="col" *ngFor="let data of filterBooks(category)">
-                <div class="card h-100 shadow-sm">
-                  <img [src]="data.image" class="card-img-top book-image" alt="Book Image">
-                  <div class="card-body p-2">
-                    <h6 class="card-title mb-1">{{ data.title }}</h6>
-                    <p class="text-muted small mb-1">{{ data.author }}</p>
-                    <p class="card-text small">
-                      {{ data.description | slice:0:35 }}{{ data.description.length > 35 ? '...' : '' }}
-                    </p>                    
-                    
-                  </div>
-                  <div class="card-footer bg-transparent border-0 p-2">
-                    <button class="btn btn-outline-primary btn-sm w-100" (click)="binddetail(data)">
-                      <i class="fa fa-eye"></i> Preview
-                    </button>
-                  </div>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <div class="col" *ngFor="let data of filterBooks(category)">
+              <div class="card h-100 shadow-sm">
+                <img [src]="data.image" class="card-img-top book-image" alt="Book Image">
+                <div class="card-body p-2">
+                  <h6 class="card-title mb-1">{{ data.title }}</h6>
+                  <p class="text-muted small mb-1">{{ data.author }}</p>
+                  <p class="card-text small">
+                    {{ data.description | slice:0:35 }}{{ data.description.length > 35 ? '...' : '' }}
+                  </p>
+
+                </div>
+                <div class="card-footer bg-transparent border-0 p-2">
+                  <button class="btn btn-outline-primary btn-sm w-100" (click)="binddetail(data)">
+                    <i class="fa fa-eye"></i> Preview
+                  </button>
                 </div>
               </div>
             </div>
-
-        
-            <hr class="my-4">
-          </div>
-        </div>
-        
-
-        <!-- <div class="row">
-
-         
-        <div class="col-md-12">
-        
-          <div class="input-group mk-d-flex mb-3">      
-            <input id="search" [(ngModel)]="search" [ngModelOptions]="{ standalone: true }" type="text"
-            class="form-control" placeholder="Search for Books" />
-            <div class="mk-search-icon-outer">
-              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
-            </div>
           </div>
 
-      
-					<div class="col-md-12">
-        
-            <div class="input-group mk-d-flex mb-5">      
-              <input id="search" [(ngModel)]="search" [ngModelOptions]="{ standalone: true }" type="text"
-              class="form-control" placeholder="Search for Books" />
-              <div class="mk-search-icon-outer">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
-              </div>
-            </div>
-              <div class="row" *ngFor="let book of ebooks">
-                <div class="col-12">
-                  <div class="card mb-3 ebook-card">
-                    <div class="row g-0">
-                   
-                      <div class="col-4 col-md-2">
-                        <img [src]="book.image" class="img-fluid" alt="Book cover" />
-                      </div>
-              
-                   
-                      <div class="col-8 col-md-6">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ book.title }}</h5>
-                          <p class="text-muted mb-2">{{ book.author }}</p>
-                          <p class="card-text small text-muted">
-                            Practice the most important algebra questions commonly asked in competitive exams.
-                          </p>
-                          <a (click)="binddetail(book.id)" class="btn btn-primary btn-sm">
-                            <i class="fa fa-download"></i> Preview
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
 
-
-
-           
-              
-            </div>
-            
-           
-            
+          <hr class="my-4">
         </div>
-        </div> -->
-        </div>
-    
+      </div>
