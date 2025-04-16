@@ -1,0 +1,25 @@
+header.latest-header {
+    padding: 5px 0;
+}
+
+header.latest-header .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    min-height: auto;
+    border: none;
+    display: flex
+;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header.latest-header .navbar-header {
+    display: flex
+;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+header.latest-header .navbar-brand {
+    padding: 0 15px;
+}

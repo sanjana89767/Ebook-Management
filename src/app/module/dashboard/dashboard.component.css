@@ -1,0 +1,33 @@
+
+.ebook-card {
+    max-height: 350px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+  
+
+  @media (max-width: 767px) {
+    .ebook-card {
+      max-height: 450px;
+    }
+  
+    .ebook-card img {
+      max-height: 200px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+  }
+  
+
+.ebook-image {
+  height: 150px; 
+}
+
+.book-image {
+  width: 100%;
+  height: auto; 
+  max-height: 200px;
+  object-fit: contain; 
+}

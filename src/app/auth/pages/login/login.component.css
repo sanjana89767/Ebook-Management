@@ -1,0 +1,24 @@
+.content-wrapper {
+    background: #ecf0f4;
+    padding: 2.75rem 1.5rem 0;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.page-body-wrapper.full-page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container-scroller {
+    overflow: hidden;
+}
+
+.auth-form-light {
+    background: #ffffff;
+}
+
+.gradient-custom {
+    background: #ecf0f4;
+    height: 110vh !important;
+    }
